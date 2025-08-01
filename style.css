@@ -1,5 +1,12 @@
 
+body.home {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+}
 /* Animação de fade-in para o texto da mensagem inicial */
 #mensagem-inicial {
     opacity: 0;
@@ -16,6 +23,11 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+#buttonConvite {
+    margin: 50px;
+
 }
 
 /* Botões com animação flutuante */
@@ -89,12 +101,13 @@ button:hover {
     }
 }
 
-body {
+body.convite {
     position: relative;
     margin: 0;
     padding: 0;
     overflow-y: scroll;
 }
+
 
 @keyframes textoFade {
     from {
@@ -112,5 +125,3 @@ div[style*="position: absolute"] {
     animation: textoFade 2s ease-out forwards;
     opacity: 0;
 }
-
-
