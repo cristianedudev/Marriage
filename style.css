@@ -1,4 +1,3 @@
-
 body.home {
     margin: 0;
     height: 100vh;
@@ -6,7 +5,9 @@ body.home {
     justify-content: center;
     align-items: center;
 
+
 }
+
 /* Animação de fade-in para o texto da mensagem inicial */
 #mensagem-inicial {
     opacity: 0;
@@ -27,6 +28,22 @@ body.home {
 
 #buttonConvite {
     margin: 50px;
+
+}
+
+#conteinerButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    background-image: url(/Assets/img/foto_3.jpg);
+    background-size: cover;
+
+    background-repeat: no-repeat;
+
+
+
 
 }
 
@@ -106,6 +123,8 @@ body.convite {
     margin: 0;
     padding: 0;
     overflow-y: scroll;
+    background: linear-gradient(135deg, #ffc0cb, #ff69b4, #ff1493);
+
 }
 
 
