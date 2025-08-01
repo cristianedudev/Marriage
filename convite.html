@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Nosso Momento</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script src="script.js"></script>
+
+<body style="background-color: #fff0f5; text-align: center; font-family: Arial, sans-serif;">
+    <audio id="musicaFundo" autoplay loop volume="0.2" style="display:none;">
+        <source src="/Assets/mp3/musica_1.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio HTML5.
+    </audio>
+    <!-- Script para iniciar a música com atraso -->
+    <script>
+        setTimeout(() => {
+            const audio = document.getElementById("musicaFundo");
+            audio.play();
+        }, 14000); // 14 segundos (14000 milissegundos)
+    </script>
+
+    <h1 style="color: #c71585;">Você é meu lugar favorito no mundo</h1>
+    <img src="/Assets/img/foto_1.jpg" alt="Nossa foto juntos"
+        style="width: 60%; max-width: 500px; border-radius: 15px; margin: 20px 0;">
+    <p style="font-size: 18px; color: #800080;">Aceita viver uma noite inesquecível ao meu lado?</p>
+    <p style="font-size: 18px; color: #8b008b;">
+        Neste sábado, dia <strong>02 de agosto de 2025</strong>, logo após a nossa pequena Mel se entregar aos sonhos,
+        você está convidada para uma noite pensada com carinho, no lugar mais aconchegante do mundo: <strong>nosso
+            quarto</strong>. <br><br>
+
+        Teremos <em>frios, snacks e boas bebidas</em>, mas o que realmente faz essa noite especial é o nosso momento
+        juntos.<br>
+        Será nossa <strong>Noite de Cinema em Casa</strong>, recheada de risos, abraços e aquela magia que só nós
+        sabemos criar. <br><br>
+
+        Aceita esse convite para celebrar o nosso amor, sob as luzes suaves da tela e o calor do coração?
+    </p>
+    <div id="mensagem" style="display:none; font-size: 20px; color: #800080; margin-top: 20px;"></div>
+
+    <!-- Botões de resposta romântica -->
+    <button id="buttonSim" onclick="respostaSim()"
+        style="margin: 10px; padding: 12px 20px; background-color: #db7093; color: white; border: none; border-radius: 8px; cursor: pointer;">
+        Sim, meu amor!
+    </button>
+
+    <button id="buttonClaro" onclick="respostaSim()"
+        style="margin: 10px; padding: 12px 20px; background-color: #ff69b4; color: white; border: none; border-radius: 8px; cursor: pointer;">
+        Claro, já estou derretendo!
+    </button>
+
+    <!-- Mensagem que aparece ao clicar -->
+    <div id="mensagem" style="display:none; font-size: 20px; color: #800080; margin-top: 20px;"></div>
+
+    <!-- Script que ativa a animação -->
+    <script>
+        function respostaSim() {
+            const msg = document.getElementById("mensagem");
+            msg.innerHTML = "🥰 Prepare-se para uma noite de amor, risadas e muito nós!";
+            msg.style.display = "block";
+            msg.style.opacity = 0;
+            let opacidade = 0;
+            const fade = setInterval(() => {
+                if (opacidade < 1) {
+                    opacidade += 0.05;
+                    msg.style.opacity = opacidade;
+                } else {
+                    clearInterval(fade);
+                }
+            }, 50);
+        }
+    </script>
+</body>
+
+</html>
