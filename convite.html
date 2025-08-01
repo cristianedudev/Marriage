@@ -25,7 +25,7 @@
     <img src="/Assets/img/foto_1.jpg" alt="Nossa foto juntos"
         style="width: 60%; max-width: 500px; border-radius: 15px; margin: 20px 0;">
     <p style="font-size: 18px; color: #800080;">Aceita viver uma noite inesquecível ao meu lado?</p>
-    <p style="font-size: 18px; color: #8b008b;">
+    <p id="telaInici" style="font-size: 18px; color: #8b008b;">
         Neste sábado, dia <strong>02 de agosto de 2025</strong>, logo após a nossa pequena Mel se entregar aos sonhos,
         você está convidada para uma noite pensada com carinho, no lugar mais aconchegante do mundo: <strong>nosso
             quarto</strong>. <br><br>
@@ -51,24 +51,71 @@
     </button>
 
     <!-- Mensagem que aparece ao clicar -->
-    <div id="mensagem" style="display:none; font-size: 20px; color: #800080; margin-top: 20px;"></div>
+    <div id="telaFinal" style="display: none;"></div>
 
     <!-- Script que ativa a animação -->
     <script>
         function respostaSim() {
-            const msg = document.getElementById("mensagem");
-            msg.innerHTML = "🥰 Prepare-se para uma noite de amor, risadas e muito nós!";
-            msg.style.display = "block";
+            // Remove todo conteúdo da tela
+            const elementosAntigos = document.querySelectorAll("body > *:not(audio)");
+            elementosAntigos.forEach(el => el.style.display = "none");
+
+            // Continua a música se já estiver tocando — nenhuma interrupção
+
+            // Cria imagem romântica
+            const img = document.createElement("img");
+            img.src = "/Assets/img/foto_2.jpg"; // substitua pelo nome correto da imagem
+            img.alt = "Nosso momento especial";
+            img.style.width = "80%";
+            img.style.maxWidth = "600px";
+            img.style.borderRadius = "12px";
+            img.style.boxShadow = "0 0 20px rgba(0,0,0,0.3)";
+            img.style.display = "block";
+            img.style.margin = "0px auto";
+
+            // Mensagem opcional que aparece depois da imagem
+            const msg = document.createElement("p");
+            msg.textContent = "Essa é só uma parte do que ainda viveremos juntos 💖";
+            msg.style.textAlign = "center";
+            msg.style.fontSize = "1.5rem";
+            msg.style.color = "#b30047";
+            msg.style.animation = "fadeIn 2s ease-out forwards";
             msg.style.opacity = 0;
-            let opacidade = 0;
-            const fade = setInterval(() => {
-                if (opacidade < 1) {
-                    opacidade += 0.05;
-                    msg.style.opacity = opacidade;
-                } else {
-                    clearInterval(fade);
-                }
-            }, 50);
+            msg.style.marginTop = "0px"; // diminui o espaço acima do texto
+            msg.style.marginBottom = "0px"; // garante que não haja espaço extra abaixo
+
+            document.body.appendChild(img);
+            document.body.appendChild(msg);
+
+            setTimeout(() => {
+                msg.style.opacity = 1;
+            }, 1500);
+            const textoSobreImagem = document.createElement("div");
+            //textoSobreImagem.textContent = "meu amor, quero 💘";
+            const mensagem = `Meu amor,<br><br>
+Hoje, mais do que nunca, eu quero te lembrar o quanto você é essencial na minha vida.<br><br>
+Você foi o começo das risadas mais sinceras, das noites mais acolhedoras e dos planos que encheram meu coração de esperança. Às vezes, com a correria do dia a dia, a gente esquece de dizer o quanto alguém é amado... mas eu não posso mais deixar isso passar.<br><br>
+Eu te amo — com toda a intensidade do primeiro olhar, com a segurança dos nossos abraços, e com a vontade de continuar escrevendo cada capítulo dessa história ao seu lado.<br><br>
+Quero reacender em nós aquele brilho que nunca se apagou — só se escondeu por trás das tarefas, dos boletos e das rotinas. Quero voltar a olhar pra você como se o tempo parasse. Quero que saiba que meu coração ainda acelera quando te vejo sorrir.<br><br>
+Você é minha escolha. Ontem. Hoje. Sempre.<br><br>
+Te amo com força, com doçura, com verdade.<br><br>
+Seu,<br>
+Cristian`;
+
+            textoSobreImagem.innerHTML = mensagem;
+            textoSobreImagem.style.position = "absolute";
+            //textoSobreImagem.style.top = "50%";           // Centraliza verticalmente
+            textoSobreImagem.style.left = "35%";
+            textoSobreImagem.style.top = "15%"; // Ajuste para centralizar verticalmente
+            textoSobreImagem.style.width = "30%";
+            textoSobreImagem.style.textAlign = "justfy";
+            textoSobreImagem.style.fontSize = "1rem";
+            textoSobreImagem.style.color = "White";
+            textoSobreImagem.style.fontWeight = "bold";
+            textoSobreImagem.style.textShadow = "0 0 10px rgba(0,0,0,0.7)";
+            textoSobreImagem.style.zIndex = "10";
+
+            document.body.appendChild(textoSobreImagem);
         }
     </script>
 </body>
